@@ -1,21 +1,22 @@
-num = int(input())
-y_value = []
+a, b = input().split()
+a = int(a)
+b = int(b)
 
-for i in range(num):
-    y_value.append(int(input()))
+if(a > b): 
+    divided = a
+    divisor = b
+else: 
+    divided = b
+    divisor = a
+remain = -1
 
-MAX = 1000000
-f = [0 for i in range(MAX+1)]
-for i in range(1, MAX+1):
-    j = 1
-    while(i*j < MAX+1):
-        f[i*j] += i
-        j += 1
+while(remain != 0):
+    remain = divided % divisor
+    divided = divisor
+    divisor = remain
 
-g = [0 for i in range(MAX+1)]
-for i in range(1, MAX+1):
-    g[i] = g[i-1] + f[i]
+gbd = divided
+lcm = int(a*b/gbd)
 
-
-for y in y_value:
-    print(g[y])
+print(gbd)
+print(lcm)
